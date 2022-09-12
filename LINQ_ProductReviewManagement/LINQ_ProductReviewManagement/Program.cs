@@ -73,6 +73,9 @@ namespace LINQ_ProductReviewManagement
                     case 10:
                         operations.RetriveRecordsForIsTrue(reviewList);
                         break;
+                    case 11:
+                        operations.AverageRating(reviewList);
+                        break;
                 }
             }
         }

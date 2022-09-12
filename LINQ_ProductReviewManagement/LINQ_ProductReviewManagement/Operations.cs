@@ -138,5 +138,14 @@ namespace LINQ_ProductReviewManagement
                 Console.WriteLine($"{row["ProductId"]},  {row["UserId"]},  {row["Rating"]},  {row["Review"]},  {row["IsLike"]}");
             }
         }
+        //Create Method to Average Rating (UC10)
+        public void AverageRating(List<ProductReview> list)
+        {
+            var result = list.GroupBy(x => x.ProductId).Select(x => new { productId = x.Key, Rating = x.Average(t => t.Rating) });
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.productId + " " + item.Rating);
+            }
+        }
     }
 }
