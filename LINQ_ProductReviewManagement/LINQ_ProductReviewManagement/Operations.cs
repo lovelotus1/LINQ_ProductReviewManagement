@@ -37,5 +37,14 @@ namespace LINQ_ProductReviewManagement
                 Console.WriteLine(item.ProductID + " " + item.Count);
             }
         }
+        //Create Method to Retrive Product ID And Review Of AllRecords (UC5)
+        public void RetriveProductIDAndReviewOfAllRecords(List<ProductReview> list)
+        {
+            var result = list.OrderBy(x => x.ProductId).Select(x => new { productId = x.ProductId, Review = x.Review });
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.productId + " " + item.Review);
+            }
+        }
     }
 }
