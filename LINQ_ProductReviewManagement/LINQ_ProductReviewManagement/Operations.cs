@@ -156,5 +156,14 @@ namespace LINQ_ProductReviewManagement
                 Console.WriteLine("ProductID:- " + data.ProductId + " " + "UserID:- " + data.UserId + " " + "Rating:- " + data.Rating + " " + "Review:- " + data.Review + " " + "IsLike:- " + data.IsLike);
             }
         }
+        //create Method to Get Record for User10 (UC12)
+        public void GetRecordsForUser10(List<ProductReview> list)
+        {
+            var result = (from productReviews in list where productReviews.UserId == 10 select productReviews).OrderBy(x => x.Rating);
+            foreach (var data in result)
+            {
+                Console.WriteLine("ProductID:- " + data.ProductId + " " + "UserID:- " + data.UserId + " " + "Rating:- " + data.Rating + " " + "Review:- " + data.Review + " " + "IsLike:- " + data.IsLike);
+            }
+        }
     }
 }

@@ -21,18 +21,18 @@ namespace LINQ_ProductReviewManagement
             reviewList.Add(new ProductReview() { ProductId = 11, UserId = 3, Rating = 3, Review = "Average", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 12, UserId = 3, Rating = 2, Review = "Bad", IsLike = false });
             reviewList.Add(new ProductReview() { ProductId = 13, UserId = 4, Rating = 4, Review = "Good", IsLike = true });
-            reviewList.Add(new ProductReview() { ProductId = 14, UserId = 5, Rating = 3, Review = "Good", IsLike = true });
+            reviewList.Add(new ProductReview() { ProductId = 14, UserId = 10, Rating = 3, Review = "Good", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 15, UserId = 6, Rating = 2, Review = "Bad", IsLike = false });
             reviewList.Add(new ProductReview() { ProductId = 16, UserId = 6, Rating = 4, Review = "Good", IsLike = true });
-            reviewList.Add(new ProductReview() { ProductId = 17, UserId = 7, Rating = 3, Review = "Average", IsLike = true });
+            reviewList.Add(new ProductReview() { ProductId = 17, UserId = 10, Rating = 3, Review = "Average", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 18, UserId = 7, Rating = 4, Review = "Good", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 19, UserId = 7, Rating = 5, Review = "Good", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 20, UserId = 8, Rating = 3, Review = "Average", IsLike = true });
-            reviewList.Add(new ProductReview() { ProductId = 21, UserId = 8, Rating = 2, Review = "Bad", IsLike = false });
+            reviewList.Add(new ProductReview() { ProductId = 21, UserId = 10, Rating = 2, Review = "Bad", IsLike = false });
             reviewList.Add(new ProductReview() { ProductId = 22, UserId = 8, Rating = 5, Review = "Good", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 23, UserId = 9, Rating = 4, Review = "Good", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 24, UserId = 9, Rating = 5, Review = "Best", IsLike = true });
-            reviewList.Add(new ProductReview() { ProductId = 25, UserId = 9, Rating = 5, Review = "Best", IsLike = true });
+            reviewList.Add(new ProductReview() { ProductId = 25, UserId = 10, Rating = 5, Review = "Best", IsLike = true });
             bool check = true;
             Operations operations = new Operations();
             Console.WriteLine("1.Display Product Review\n2.Get top 3 Records\n3.Retrive Records with Rating>3 and Product Id=1,4,9\n4.Retrive Records count\n5.Retrive ProductID and Review\n6.Skip Top 5 Records\n7.AllProductId and Review. \n8.Create data table. \n9.Display data table\n10.Retrive records of Is Like True\n11.Average Rating\n12.Get records of nice review\n13.Get records for user 10");
@@ -78,6 +78,9 @@ namespace LINQ_ProductReviewManagement
                         break;
                     case 12:
                         operations.GetRecordForNiceReview(reviewList);
+                        break;
+                    case 13:
+                        operations.GetRecordsForUser10(reviewList);
                         break;
                 }
             }
