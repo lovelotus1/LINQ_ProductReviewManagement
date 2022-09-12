@@ -35,7 +35,7 @@ namespace LINQ_ProductReviewManagement
             reviewList.Add(new ProductReview() { ProductId = 25, UserId = 9, Rating = 5, Review = "Best", IsLike = true });
             bool check = true;
             Operations operations = new Operations();
-            Console.WriteLine("1.Display Product Review\n2.Get top 3 Records\n3.Retrive Records with Rating>3 and Product Id=1,4,9\n4.Retrive Records count\n5.Retrive ProductID and Review\n6.Skip Top 5 Records\n7.Create and display data table\n8.Retrive records of Is Like True\n9.Average Rating\n10.Get records of nice review\n11Get records for user 10");
+            Console.WriteLine("1.Display Product Review\n2.Get top 3 Records\n3.Retrive Records with Rating>3 and Product Id=1,4,9\n4.Retrive Records count\n5.Retrive ProductID and Review\n6.Skip Top 5 Records\n7. AllProductId and review. \n8.Create and display data table\n9.Retrive records of Is Like True\n10.Average Rating\n11.Get records of nice review\n12.Get records for user 10");
             while (check)
             {
 
@@ -60,6 +60,9 @@ namespace LINQ_ProductReviewManagement
                         break;
                     case 6:
                         operations.SkipTop5Records(reviewList);
+                        break;
+                    case 7:
+                        operations.RetrieveProductIDandReview(reviewList);
                         break;
                 }
             }

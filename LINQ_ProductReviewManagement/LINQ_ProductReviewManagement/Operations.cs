@@ -52,5 +52,17 @@ namespace LINQ_ProductReviewManagement
             var result = list.OrderBy(x => x.Rating).Skip(5).ToList();
             Display(result);
         }
+        /// <summary>
+        /// UC5 7 UC7 - Retrieves the product id and review.
+        /// </summary>
+        /// <param name="productReviewList">The product review list.</param>
+        public void RetrieveProductIDandReview(List<ProductReview> productReviewList)
+        {
+            var recordData = productReviewList.Select(r => new { r.ProductId, r.Review });
+            foreach (var list in recordData)
+            {
+                Console.WriteLine("product Id:-" + list.ProductId + " Review :-" + list.Review);
+            }
+        }
     }
 }
