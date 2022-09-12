@@ -58,6 +58,9 @@ namespace LINQ_ProductReviewManagement
                     case 5:
                         operations.RetriveProductIDAndReviewOfAllRecords(reviewList);
                         break;
+                    case 6:
+                        operations.SkipTop5Records(reviewList);
+                        break;
                 }
             }
         }

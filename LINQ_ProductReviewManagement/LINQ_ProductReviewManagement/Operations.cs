@@ -46,5 +46,11 @@ namespace LINQ_ProductReviewManagement
                 Console.WriteLine(item.productId + " " + item.Review);
             }
         }
+        //Create Method to Skip Top 5 (UC6)
+        public void SkipTop5Records(List<ProductReview> list)
+        {
+            var result = list.OrderBy(x => x.Rating).Skip(5).ToList();
+            Display(result);
+        }
     }
 }
