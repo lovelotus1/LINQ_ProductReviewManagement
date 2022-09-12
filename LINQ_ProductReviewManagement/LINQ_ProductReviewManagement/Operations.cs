@@ -9,6 +9,8 @@ namespace LINQ_ProductReviewManagement
 {
     public class Operations
     {
+
+        DataTable dataTable = new DataTable();
         public void GetTop3Records(List<ProductReview> list)
         {
             var result = list.OrderByDescending(x => x.Rating).Take(3).ToList();
@@ -102,6 +104,38 @@ namespace LINQ_ProductReviewManagement
             {
                 Console.WriteLine("==================================================================================");
                 Console.WriteLine("ProductID: {0}\t UserID: {1}\t Review: {2}\t Rating: {3}\t IsLike: {4}\t", data[0], data[1], data[2], data[3], data[4]);
+            }
+        }
+        //Create Method to create table (UC8)
+        public void CreateDataTable(List<ProductReview> list)
+        {
+            //Adding columns to data table and their type
+            dataTable.Columns.Add("ProductId", typeof(int));
+            dataTable.Columns.Add("UserId", typeof(int));
+            dataTable.Columns.Add("Rating", typeof(double));
+            dataTable.Columns.Add("Review", typeof(string));
+            dataTable.Columns.Add("IsLike", typeof(bool));
+
+            //Adding values to datatable from the list
+            foreach (var data in list)
+            {
+                dataTable.Rows.Add(data.ProductId, data.UserId, data.Rating, data.Review, data.IsLike);
+            }
+            Console.WriteLine("Successfully added values to datatable");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine("ProductID: {0}\t UserID: {1}\t Review: {2}\t Rating: {3}\t IsLike: {4}\t", row[0], row[1], row[2], row[3], row[4]);
+            }
+        }
+        //Create Method to Retrive Records for is True (UC9)
+        public void RetriveRecordsForIsTrue(List<ProductReview> list)
+        {
+            CreateDataTable(list);
+            var result = from table in dataTable.AsEnumerable() where table.Field<bool>("IsLike") == true select table;
+            Console.WriteLine($"ProductId,  UserId,  Rating,  Review,  IsLike");
+            foreach (var row in result)
+            {
+                Console.WriteLine($"{row["ProductId"]},  {row["UserId"]},  {row["Rating"]},  {row["Review"]},  {row["IsLike"]}");
             }
         }
     }
