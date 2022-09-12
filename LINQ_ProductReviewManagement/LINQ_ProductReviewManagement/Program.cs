@@ -33,10 +33,23 @@ namespace LINQ_ProductReviewManagement
             reviewList.Add(new ProductReview() { ProductId = 23, UserId = 9, Rating = 4, Review = "Good", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 24, UserId = 9, Rating = 5, Review = "Best", IsLike = true });
             reviewList.Add(new ProductReview() { ProductId = 25, UserId = 9, Rating = 5, Review = "Best", IsLike = true });
-            foreach (var item in reviewList)
+            bool check = true;
+            Operations operations = new Operations();
+            Console.WriteLine("1.Display Product Review\n2.Get top 3 Records\n3.Retrive Records with Rating>3 and Product Id=1,4,9\n4.Retrive Records count\n5.Retrive ProductID and Review\n6.Skip Top 5 Records\n7.Create and display data table\n8.Retrive records of Is Like True\n9.Average Rating\n10.Get records of nice review\n11Get records for user 10");
+            while (check)
             {
-                Console.WriteLine(item.ProductId + "\t" + item.UserId + "\t" + item.Rating + "\t" + item.Review + "\t" + item.IsLike);
-                Console.WriteLine(" ");
+
+                Console.WriteLine("choose an option to execute");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        operations.Display(reviewList);
+                        break;
+                    case 2:
+                        operations.GetTop3Records(reviewList);
+                        break;
+                }
             }
         }
     }
