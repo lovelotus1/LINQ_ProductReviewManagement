@@ -52,6 +52,9 @@ namespace LINQ_ProductReviewManagement
                     case 3:
                         operations.RetriveRecordsWithRatingAndProductID(reviewList);
                         break;
+                    case 4:
+                        operations.RetriveRecordsCount(reviewList);
+                        break;
                 }
             }
         }
