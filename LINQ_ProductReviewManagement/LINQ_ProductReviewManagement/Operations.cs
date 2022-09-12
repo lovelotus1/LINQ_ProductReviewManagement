@@ -22,5 +22,11 @@ namespace LINQ_ProductReviewManagement
                 Console.WriteLine(" ");
             }
         }
+        //Create Method to Retrive Records with rating and Product ID (UC3)
+        public void RetriveRecordsWithRatingAndProductID(List<ProductReview> list)
+        {
+            var result = list.Where(x => x.Rating > 3 && (x.ProductId == 1 || x.ProductId == 4 || x.ProductId == 9)).Take(3).ToList();
+            Display(result);
+        }
     }
 }

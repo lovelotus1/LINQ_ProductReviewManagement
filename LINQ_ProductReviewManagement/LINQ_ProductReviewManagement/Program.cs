@@ -49,6 +49,9 @@ namespace LINQ_ProductReviewManagement
                     case 2:
                         operations.GetTop3Records(reviewList);
                         break;
+                    case 3:
+                        operations.RetriveRecordsWithRatingAndProductID(reviewList);
+                        break;
                 }
             }
         }
