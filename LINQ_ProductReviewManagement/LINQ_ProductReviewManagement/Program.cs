@@ -76,6 +76,9 @@ namespace LINQ_ProductReviewManagement
                     case 11:
                         operations.AverageRating(reviewList);
                         break;
+                    case 12:
+                        operations.GetRecordForNiceReview(reviewList);
+                        break;
                 }
             }
         }

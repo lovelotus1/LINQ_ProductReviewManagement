@@ -147,5 +147,14 @@ namespace LINQ_ProductReviewManagement
                 Console.WriteLine(item.productId + " " + item.Rating);
             }
         }
+        //Create Method to Get Record For Nice Review (UC11)
+        public void GetRecordForNiceReview(List<ProductReview> list)
+        {
+            var result = (from productReviews in list where productReviews.Review == "Nice" select productReviews);
+            foreach (var data in result)
+            {
+                Console.WriteLine("ProductID:- " + data.ProductId + " " + "UserID:- " + data.UserId + " " + "Rating:- " + data.Rating + " " + "Review:- " + data.Review + " " + "IsLike:- " + data.IsLike);
+            }
+        }
     }
 }
